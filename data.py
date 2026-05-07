@@ -216,7 +216,7 @@ def heat_map(job_role,location):
 def trending_categories(roles,search_time):
     history=[]
     for role in roles:
-        url = f"https://api.adzuna.com/v1/api/jobs/gb/history?app_id={YOUR_APP_ID}&app_key={YOUR_APP_KEY}&category={category_map.get(role)}&months={search_time}"
+        url = f"https://api.adzuna.com/v1/api/jobs/us/history?app_id={YOUR_APP_ID}&app_key={YOUR_APP_KEY}&category={category_map.get(role)}&months={search_time}"
         request=requests.get(url)
         result=request.json()
         history.append(result['month']) 
