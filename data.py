@@ -8,7 +8,7 @@ import streamlit as st
 load_dotenv()
 
 YOUR_APP_ID = os.getenv("YOUR_APP_ID") or st.secrets["YOUR_APP_ID"]
-YOUR_APP_KEY = os.getenv("YOUR_APP_KEY") or st.secrets("YOUR_APP_KEY")
+YOUR_APP_KEY = os.getenv("YOUR_APP_KEY") or st.secrets["YOUR_APP_KEY"]
 
 skills = {
     "Programming Languages": [
