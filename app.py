@@ -144,7 +144,7 @@ elif tab=="Trending Categories":
         for i in range(len(role)):
             data_dict = trends[i]
             months = sorted(list(data_dict.keys()))
-            values = sorted([data_dict[m] for m in months])
+            values = [data_dict[m] for m in months]
             fig.add_trace(go.Scatter(
                 x=months,
                 y=values,
