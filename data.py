@@ -41,10 +41,8 @@ skills = {
     ],
 }
 
-# Flat list of every skill (used when scanning descriptions)
 all_skills = [skill for group in skills.values() for skill in group]
 
-# US state names → 2-letter abbreviations (for the choropleth heatmap)
 state_abr = {
     "Alabama": "AL",        "Alaska": "AK",         "Arizona": "AZ",
     "Arkansas": "AR",       "California": "CA",      "Colorado": "CO",
@@ -64,7 +62,6 @@ state_abr = {
     "Virginia": "VA",       "Washington": "WA",      "West Virginia": "WV",
     "Wisconsin": "WI",      "Wyoming": "WY",
 }
-
 
 category_map = {
     "Accounting & Finance Jobs": "accounting-finance-jobs",

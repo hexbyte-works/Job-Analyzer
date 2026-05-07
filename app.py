@@ -24,11 +24,13 @@ job_roles = [
     "DevOps Engineer",
     "Other"
 ]
+st.sidebar.title("CareerRadar")
 st.sidebar.header("Tabs:")
 tab=st.sidebar.radio(label="Tabs:",options=['Job Search','Skill Extractor','Role HeatMap','Trending Categories'],label_visibility="collapsed",)
 
 if tab=="Job Search":
     st.title("💼 Job Finder")
+    st.write("Search any job that fits you requirments")
     st.sidebar.divider()
     st.sidebar.header('🔍 Search')
     # st.sidebar.subheader("JOB Title / KEYWORDS")
@@ -62,6 +64,7 @@ if tab=="Job Search":
 
 elif tab=="Skill Extractor":
     st.title("🧠 Skill Extractor")
+    st.write("Search any job role and see which skills employers actually ask for.")
     st.sidebar.divider()
     st.sidebar.header("Skill Extractor")
     job_role=st.sidebar.selectbox("JOB ROLE",job_roles,placeholder="Enter a Role",accept_new_options=True,index=None)
@@ -127,7 +130,8 @@ elif tab=="Role HeatMap":
 elif tab=="Trending Categories":
     st.sidebar.divider()
     st.sidebar.header("Trending Categories")
-    st.title("Trending Categories")
+    st.title("📈Trending Categories")
+    st.write("See how job volume has changed over time across different industries.")
     role=st.sidebar.multiselect("CATEGORIES TO COMAPRE",data.category_map.keys(),placeholder="Select Catogies")
     search_time =int(st.sidebar.slider("Months to Search",3,24,12))
     st.sidebar.divider()
@@ -139,18 +143,14 @@ elif tab=="Trending Categories":
         data_dict={}
         for i in range(len(role)):
             data_dict = trends[i]
-
             months = sorted(list(data_dict.keys()))
             values = sorted([data_dict[m] for m in months])
-
-
             fig.add_trace(go.Scatter(
                 x=months,
                 y=values,
                 name=role[i],
                 mode="lines+markers",
             ))
-
         fig.update_layout(
             title="Job Volume Over Time by Category",
             xaxis_title="Month",
